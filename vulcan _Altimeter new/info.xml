@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pluginstrument>
+    <aircraft>vulcan </aircraft>
+    <author>larrylynx</author>
+    <compatibleFSX>true</compatibleFSX>
+    <compatibleP3D>true</compatibleP3D>
+    <compatibleXPL>true</compatibleXPL>
+    <configVersion>1</configVersion>
+    <description></description>
+    <pluginInterfaceVersion>100</pluginInterfaceVersion>
+    <prefHeight>330</prefHeight>
+    <prefWidth>330</prefWidth>
+    <type>Altimeter new</type>
+    <uuid>9987d7d6-ed88-4961-aed0-31f4fe169718</uuid>
+    <version>1</version>
+</pluginstrument>

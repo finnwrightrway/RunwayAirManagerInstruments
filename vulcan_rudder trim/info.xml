@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pluginstrument>
+    <aircraft>vulcan</aircraft>
+    <author>larrylynx</author>
+    <compatibleFSX>true</compatibleFSX>
+    <compatibleP3D>true</compatibleP3D>
+    <compatibleXPL>false</compatibleXPL>
+    <configVersion>1</configVersion>
+    <description></description>
+    <pluginInterfaceVersion>100</pluginInterfaceVersion>
+    <prefHeight>250</prefHeight>
+    <prefWidth>250</prefWidth>
+    <type>rudder trim</type>
+    <uuid>c7199c78-404f-48f4-a9e9-f1edc2bc5dc7</uuid>
+    <version>1</version>
+</pluginstrument>

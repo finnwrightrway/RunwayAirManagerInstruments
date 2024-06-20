@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pluginstrument>
+    <aircraft>vulcan</aircraft>
+    <author>unknown</author>
+    <compatibleFSX>true</compatibleFSX>
+    <compatibleP3D>true</compatibleP3D>
+    <compatibleXPL>false</compatibleXPL>
+    <configVersion>1</configVersion>
+    <description></description>
+    <pluginInterfaceVersion>100</pluginInterfaceVersion>
+    <prefHeight>400</prefHeight>
+    <prefWidth>400</prefWidth>
+    <type>Fuel Flow  test total</type>
+    <uuid>c147148d-ade1-4a35-bcb8-b85317380372</uuid>
+    <version>1</version>
+</pluginstrument>

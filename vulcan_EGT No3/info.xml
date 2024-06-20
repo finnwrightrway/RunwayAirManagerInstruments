@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pluginstrument>
+    <aircraft>vulcan</aircraft>
+    <author>Larrylynx</author>
+    <compatibleFSX>true</compatibleFSX>
+    <compatibleP3D>true</compatibleP3D>
+    <compatibleXPL>true</compatibleXPL>
+    <configVersion>1</configVersion>
+    <description></description>
+    <pluginInterfaceVersion>100</pluginInterfaceVersion>
+    <prefHeight>200</prefHeight>
+    <prefWidth>200</prefWidth>
+    <type>EGT No3</type>
+    <uuid>e5657e26-454c-4e5b-bdb7-d5934672badd</uuid>
+    <version>1</version>
+</pluginstrument>

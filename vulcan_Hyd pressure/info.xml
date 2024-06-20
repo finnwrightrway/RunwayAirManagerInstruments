@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pluginstrument>
+    <aircraft>vulcan</aircraft>
+    <author>larrylynx</author>
+    <compatibleFSX>true</compatibleFSX>
+    <compatibleP3D>true</compatibleP3D>
+    <compatibleXPL>false</compatibleXPL>
+    <configVersion>1</configVersion>
+    <description></description>
+    <pluginInterfaceVersion>100</pluginInterfaceVersion>
+    <prefHeight>200</prefHeight>
+    <prefWidth>200</prefWidth>
+    <type>Hyd pressure </type>
+    <uuid>98b8d5b9-7d26-48b0-849c-35e2fe6a4fbc</uuid>
+    <version>1</version>
+</pluginstrument>

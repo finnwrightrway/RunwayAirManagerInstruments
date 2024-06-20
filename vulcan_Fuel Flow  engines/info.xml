@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pluginstrument>
+    <aircraft>vulcan</aircraft>
+    <author>larrylynx</author>
+    <compatibleFSX>true</compatibleFSX>
+    <compatibleP3D>true</compatibleP3D>
+    <compatibleXPL>false</compatibleXPL>
+    <configVersion>1</configVersion>
+    <description></description>
+    <pluginInterfaceVersion>100</pluginInterfaceVersion>
+    <prefHeight>250</prefHeight>
+    <prefWidth>250</prefWidth>
+    <type>Fuel Flow  engines</type>
+    <uuid>a88f7b73-18a8-4a6e-a00d-b26c59e613f0</uuid>
+    <version>1</version>
+</pluginstrument>

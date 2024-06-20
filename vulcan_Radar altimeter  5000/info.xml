@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pluginstrument>
+    <aircraft>vulcan</aircraft>
+    <author>unknown</author>
+    <compatibleFSX>true</compatibleFSX>
+    <compatibleP3D>true</compatibleP3D>
+    <compatibleXPL>false</compatibleXPL>
+    <configVersion>1</configVersion>
+    <description></description>
+    <pluginInterfaceVersion>100</pluginInterfaceVersion>
+    <prefHeight>400</prefHeight>
+    <prefWidth>400</prefWidth>
+    <type>Radar altimeter  5000</type>
+    <uuid>991e5878-1b9d-4844-befc-f7b2f5058bb0</uuid>
+    <version>1</version>
+</pluginstrument>

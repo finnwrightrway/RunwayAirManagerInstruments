@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pluginstrument>
+    <aircraft>vulcan</aircraft>
+    <author>unknownlarrylynx</author>
+    <compatibleFSX>true</compatibleFSX>
+    <compatibleP3D>true</compatibleP3D>
+    <compatibleXPL>false</compatibleXPL>
+    <configVersion>1</configVersion>
+    <description></description>
+    <pluginInterfaceVersion>100</pluginInterfaceVersion>
+    <prefHeight>400</prefHeight>
+    <prefWidth>400</prefWidth>
+    <type>turn indicator</type>
+    <uuid>dbcba423-ee89-4d59-a52e-48111946593c</uuid>
+    <version>1</version>
+</pluginstrument>

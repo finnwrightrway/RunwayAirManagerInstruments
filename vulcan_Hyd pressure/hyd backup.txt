@@ -1,0 +1,36 @@
+--     Load and display images     --
+-------------------------------------
+
+img_add_fullscreen("hyd back.png")
+hand_1 = img_add("hyd needle pressure.png", 85,0,12,80)
+hand_2 = img_add("hyd needle pressure.png", 85,120,12,80)
+hand_3 = img_add("hyd needle cap.png", 27,94,125,12)
+-- Functions --
+
+function new_hyd(hydp)
+
+	hydp1 = var_cap(hydp[1], 0, 290)
+	img_rotate(hand_1, (150 / 120 * hydp1) -120)
+	img_rotate(hand_2, (150/ 120 * hydp1) -58)
+	img_rotate(hand_3, (150/ 120 * hydp1) -48)
+
+end
+
+function new_hyd_FSX(hydp)
+
+	new_hyd({hydp})
+		hydp1 = var_cap(hydp[1], 0, 290)
+	img_rotate(hand_1, (150 / 120 * hydp1) -120)
+	img_rotate(hand_2, (150/ 120 * hydp1) -58)
+	img_rotate(hand_3, (150/ 120 * hydp1) -48)
+	
+end
+
+-------------------
+-- Bus subscribe --
+-------------------
+
+fsx_variable_subscribe("HYDRAULIC PRESSURE:1", "Psi", 
+                       "HYDRAULIC PRESSURE:1", "Psi",
+                       "HYDRAULIC RESERVOIR PERCENT:1", "Percent", 
+new_hyd_FSX)

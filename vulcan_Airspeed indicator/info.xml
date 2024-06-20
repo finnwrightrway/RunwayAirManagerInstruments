@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pluginstrument>
+    <aircraft>vulcan</aircraft>
+    <author>larrylynx</author>
+    <compatibleFSX>true</compatibleFSX>
+    <compatibleP3D>true</compatibleP3D>
+    <compatibleXPL>false</compatibleXPL>
+    <configVersion>1</configVersion>
+    <description></description>
+    <pluginInterfaceVersion>100</pluginInterfaceVersion>
+    <prefHeight>400</prefHeight>
+    <prefWidth>400</prefWidth>
+    <type>Airspeed indicator </type>
+    <uuid>56a77c38-9f10-4899-b6ac-0abae5874ef5</uuid>
+    <version>1</version>
+</pluginstrument>
