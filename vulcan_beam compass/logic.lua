@@ -40,9 +40,9 @@ function new_headbug( bug)
 
 end
 
-function new_combined(degm)
+function new_combined(degm, obscorr)
 
-	img_rotate(img_heading_pointer, degm )
+	img_rotate(img_heading_pointer, (degm - obscorr) )
 
 end
 
@@ -102,8 +102,7 @@ end
 fsx_variable_subscribe("AUTOPILOT HEADING LOCK DIR", "degrees", 
 					   new_headbug)
 					   
-fsx_variable_subscribe("PLANE HEADING DEGREES GYRO", "degrees",
-					   new_combined)					   
+fsx_variable_subscribe("PLANE HEADING DEGREES GYRO", "degrees","NAV OBS:1", "Degrees", new_combined)					   
 						
 fsx_variable_subscribe("NAV OBS:1", "Degrees",
                       "AUTOPILOT HEADING LOCK DIR", "degrees", 
