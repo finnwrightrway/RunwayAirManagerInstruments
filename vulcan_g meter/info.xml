@@ -1,16 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<pluginstrument>
-    <aircraft>vulcan</aircraft>
-    <author>larrylynx</author>
-    <compatibleFSX>true</compatibleFSX>
-    <compatibleP3D>true</compatibleP3D>
-    <compatibleXPL>false</compatibleXPL>
-    <configVersion>1</configVersion>
-    <description></description>
-    <pluginInterfaceVersion>100</pluginInterfaceVersion>
-    <prefHeight>200</prefHeight>
-    <prefWidth>200</prefWidth>
-    <type>g meter</type>
-    <uuid>205e2ce4-d72a-4188-9ca9-9a68a0e2683d</uuid>
-    <version>1</version>
-</pluginstrument>
+<?xml version="1.0" encoding="utf-8"?><pluginstrument><aircraft>vulcan</aircraft><type>g meter</type><uuid>205e2ce4-d72a-4188-9ca9-9a68a0e2683d</uuid><author>larrylynx</author><description></description><compatibleFSX>true</compatibleFSX><compatibleP3D>true</compatibleP3D><compatibleXPL>true</compatibleXPL><compatibleFS2>false</compatibleFS2><compatibleFS2020>false</compatibleFS2020><version>1</version><configVersion>1</configVersion><pluginInterfaceVersion>100</pluginInterfaceVersion><prefWidth>200</prefWidth><prefHeight>200</prefHeight><source>PERSONAL</source><platforms><platform>WINDOWS</platform><platform>MAC</platform><platform>LINUX</platform><platform>RASPBERRY_PI</platform><platform>ANDROID</platform><platform>IPAD</platform><platform>ESP32</platform><platform>ARDUINO</platform><platform>ANY</platform></platforms><tiers /></pluginstrument>

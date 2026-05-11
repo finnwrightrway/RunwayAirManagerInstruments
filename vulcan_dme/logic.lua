@@ -103,8 +103,10 @@ end
 
 -- Subscribe to data --					  
 					  
-fsx_variable_subscribe("LIGHT PANEL", "bool",
-					   light_fsx)	
+-- This is where we check if the backlight (cockpit light) is on, currently disabled, re-enable when req, and set up for x-plane --
+
+-- fsx_variable_subscribe("LIGHT PANEL", "bool",
+--				   light_fsx)
 
 fsx_variable_subscribe("ELEVATOR TRIM PCT", "Percent",
 					   "AILERON TRIM PCT", "Percent",

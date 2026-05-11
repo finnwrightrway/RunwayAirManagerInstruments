@@ -1,7 +1,7 @@
 -- vulcan AI ----
 
 img_add_fullscreen("ai_back.png")
-img_night = img_add("ai back night.png", 0,0,400,400)
+--img_night = img_add("ai back night.png", 0,0,400,400)
 img_ils_r_bar = img_add("ils_roll.png",42,80,318,318)
 img_ils_p_bar = img_add("ils_pitch.png",142,0,117,4)
 img_roll_bar = img_add("roll bar.png",42,80,318,318)
@@ -36,8 +36,7 @@ end
 
 function new_attitude_fsx(roll, pitch, slip)
 	
-	PT_atitude(roll *-1, pitch * -1)
-
+	PT_atitude(roll, pitch)
 end
 
 function new_dots_fsx(vertical, horizontal)
@@ -63,6 +62,9 @@ end
 
 fsx_variable_subscribe("ATTITUDE INDICATOR BANK DEGREES", "Degrees",
 					   "ATTITUDE INDICATOR PITCH DEGREES", "Degrees", new_attitude_fsx)
+					 
+xpl_dataref_subscribe("sim/cockpit2/gauges/indicators/roll_vacuum_deg_pilot", "FLOAT",
+                            "sim/cockpit2/gauges/indicators/pitch_vacuum_deg_pilot", "FLOAT", new_attitude_fsx )
 					   
 fsx_variable_subscribe("NAV CDI:1", "Number",
 					   "NAV GSI:1", "Number",
@@ -70,6 +72,6 @@ fsx_variable_subscribe("NAV CDI:1", "Number",
 
 fsx_variable_subscribe("NAV GS FLAG:1", "Bool", 
 					   "CIRCUIT AVIONICS ON", "Bool",
-					   "LIGHT PANEL", "bool",
+					  -- "LIGHT PANEL", "bool",
 					   "NAV HAS LOCALIZER:1", "Bool",
 					   new_info_fsx)		   

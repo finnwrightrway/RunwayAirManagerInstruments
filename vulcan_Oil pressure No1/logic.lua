@@ -4,7 +4,7 @@
 -------------------------------------
 
 img_add_fullscreen("oil back.png")
-img_night = img_add("oil back night.png", 0,0,200,200)
+--img_night = img_add("oil back night.png", 0,0,200,200)
 hand = img_add("oil hand.png", 0,0,200,200)
 
 -- Functions --
@@ -46,5 +46,7 @@ end
 xpl_dataref_subscribe("sim/cockpit2/engine/indicators/oil_pressure_psi", "FLOAT[8]", new_oil)
 fsx_variable_subscribe("ENG OIL PRESSURE:1", "Psi", new_oil_FSX)
 
-fsx_variable_subscribe("LIGHT PANEL", "bool",
-					   light_fsx)	
+-- This is where we check if the backlight (cockpit light) is on, currently disabled, re-enable when req, and set up for x-plane --
+
+-- fsx_variable_subscribe("LIGHT PANEL", "bool",
+--				   light_fsx)

@@ -1,16 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<pluginstrument>
-    <aircraft>vulcan</aircraft>
-    <author>larrylynx</author>
-    <compatibleFSX>true</compatibleFSX>
-    <compatibleP3D>true</compatibleP3D>
-    <compatibleXPL>false</compatibleXPL>
-    <configVersion>1</configVersion>
-    <description></description>
-    <pluginInterfaceVersion>100</pluginInterfaceVersion>
-    <prefHeight>250</prefHeight>
-    <prefWidth>250</prefWidth>
-    <type>vor distance</type>
-    <uuid>1e28cb91-c7c3-49e1-a14e-f8c51cd13327</uuid>
-    <version>1</version>
-</pluginstrument>
+<?xml version="1.0" encoding="utf-8"?><pluginstrument><aircraft>vulcan</aircraft><type>vor distance</type><uuid>1e28cb91-c7c3-49e1-a14e-f8c51cd13327</uuid><author>larrylynx</author><description></description><compatibleFSX>true</compatibleFSX><compatibleP3D>true</compatibleP3D><compatibleXPL>true</compatibleXPL><compatibleFS2>false</compatibleFS2><compatibleFS2020>false</compatibleFS2020><version>1</version><configVersion>1</configVersion><pluginInterfaceVersion>100</pluginInterfaceVersion><prefWidth>250</prefWidth><prefHeight>250</prefHeight><source>PERSONAL</source><platforms><platform>WINDOWS</platform><platform>MAC</platform><platform>LINUX</platform><platform>RASPBERRY_PI</platform><platform>ANDROID</platform><platform>IPAD</platform><platform>ESP32</platform><platform>ARDUINO</platform><platform>ANY</platform></platforms><tiers /></pluginstrument>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pluginstrument>
+    <aircraft>vulcan</aircraft>
+    <author>larrylynx</author>
+    <compatibleFSX>true</compatibleFSX>
+    <compatibleP3D>true</compatibleP3D>
+    <compatibleXPL>false</compatibleXPL>
+    <configVersion>1</configVersion>
+    <description></description>
+    <pluginInterfaceVersion>100</pluginInterfaceVersion>
+    <prefHeight>300</prefHeight>
+    <prefWidth>300</prefWidth>
+    <type>Fuel quantity right  top </type>
+    <uuid>7d2f7e90-2746-4959-b6ee-09ddd7115206</uuid>
+    <version>1</version>
+</pluginstrument>

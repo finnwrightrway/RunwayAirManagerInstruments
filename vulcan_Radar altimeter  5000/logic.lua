@@ -3,7 +3,7 @@
 -- Load and display map and images --
 -------------------------------------
 img_add_fullscreen("rad_alt_back.png")
-img_night = img_add("rad_alt_back_night.png", 0,0,400,400)
+--img_night = img_add("rad_alt_back_night.png", 0,0,400,400)
 img_zero = img_add("rad_alt_zero.png", 0,0,400,400)
 img_zero_night = img_add("rad_alt_zero_night.png", 0,0,400,400)
 needle = img_add_fullscreen("rad_alt_needle.png")

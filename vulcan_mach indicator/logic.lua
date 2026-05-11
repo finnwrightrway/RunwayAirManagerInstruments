@@ -1,7 +1,7 @@
 -- vulcan mach indicator --
 
 img_add_fullscreen( "mach_back.png" )
-img_night = img_add("mach_back_night.png", 0,0,400,400)
+--img_night = img_add("mach_back_night.png", 0,0,400,400)
 needle = img_add( "mach_hand.png", 0, 0, 400, 400 )
 img_rotate(needle, 20 )
 
@@ -28,5 +28,9 @@ end
 
 fsx_variable_subscribe("AIRSPEED MACH", "Mach", new_speed)
 
-fsx_variable_subscribe("LIGHT PANEL", "bool",
-					   light_fsx)	
+xpl_dataref_subscribe("sim/cockpit2/gauges/indicators/mach_pilot", "FLOAT", new_speed)
+
+-- This is where we check if the backlight (cockpit light) is on, currently disabled, re-enable when req, and set up for x-plane --
+
+-- fsx_variable_subscribe("LIGHT PANEL", "bool",
+--				   light_fsx)

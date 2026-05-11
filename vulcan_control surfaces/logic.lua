@@ -2,8 +2,8 @@
 
 img_add_fullscreen("control_back.png")
 img_add_fullscreen("control_stensil.png")
-img_night_back = img_add("control back night.png" , 0,0,512,168)
-img_night = img_add("controlback stensil night.png", 0,0,512,168)
+--img_night_back = img_add("control back night.png" , 0,0,512,168)
+--img_night = img_add("controlback stensil night.png", 0,0,512,168)
 
 left_a = img_add("control line.png", 35,101,51,6)
 left_s = img_add("control line.png", 164,101,51,6)
@@ -68,5 +68,7 @@ fsx_variable_subscribe("RUDDER DEFLECTION PCT", "Percent",
                           "AILERON RIGHT DEFLECTION PCT", "Percent",
  PT_elevator_controls_right_FSX)
  
- fsx_variable_subscribe("LIGHT PANEL", "bool",
-					   light_fsx)	
+-- This is where we check if the backlight (cockpit light) is on, currently disabled, re-enable when req, and set up for x-plane --
+
+-- fsx_variable_subscribe("LIGHT PANEL", "bool",
+--				   light_fsx)	
