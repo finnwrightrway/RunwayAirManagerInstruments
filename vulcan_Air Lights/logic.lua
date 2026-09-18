@@ -1,30 +1,28 @@
---       Vulcan Gear Lights      --
+--       Vulcan Air Lights      --
 -------------------------------------
 --     Add lights     --
 -------------------------------------
 
-gear_l_red = hw_led_add("ARDUINO_MEGA2560_A_D39", 0.0)
-gear_r_red = hw_led_add("ARDUINO_MEGA2560_A_D43", 0.0)
-gear_n_red = hw_led_add("ARDUINO_MEGA2560_A_D49", 0.0)
+ALeds = hw_led_add("ARDUINO_UNO_B_D3", 0.0)
+RLeds = hw_led_add("ARDUINO_UNO_B_D4", 0.0)
+ELeds = hw_led_add("ARDUINO_UNO_B_D5", 0.0)
+Extras = hw_led_add("ARDUINO_UNO_B_D2", 0.0)
 
-gear_l_green = hw_led_add("ARDUINO_MEGA2560_A_D35", 1.0)
-gear_r_green = hw_led_add("ARDUINO_MEGA2560_A_D53", 1.0)
-gear_n_green = hw_led_add("ARDUINO_MEGA2560_A_D31", 1.0)
+Abutt = hw_button_add("ARDUINO_UNO_B_D10", pressed, released)
+Rbutt = hw_button_add("ARDUINO_UNO_B_D9", pressed, released)
+Ebutt = hw_button_add("ARDUINO_UNO_B_D8", pressed, released)
+Reset = hw_button_add("ARDUINO_UNO_B_D11", pressed, released)
 
 
 ---------------
--- Functions --
+-- Functions -- FIX
 ---------------
-function gear_lights_l(gear_L)
-    if gear_L == 1 then
+function fuel(fuel)
+    if fuek == 1 then
         hw_led_set(gear_l_green, 1)
-        hw_led_set(gear_l_red, 0)
-    elseif gear_L < 1 and gear_L > 0 then
-        hw_led_set(gear_l_green,0)
-        hw_led_set(gear_l_red, 1)
     else    
          hw_led_set(gear_l_green,0)
-        hw_led_set(gear_l_red, 0)
+
     end
 end
 function gear_lights_r(gear_R)
@@ -54,7 +52,7 @@ function gear_lights_n(gear_N)
     end
 end
 -------------------
--- Bus subscribe --
+-- Bus subscribe -- FIX
 -------------------
 xpl_dataref_subscribe("sim/flightmodel/movingparts/gear2def", "FLOAT", gear_lights_l)
 xpl_dataref_subscribe("sim/flightmodel/movingparts/gear3def", "FLOAT", gear_lights_r)
