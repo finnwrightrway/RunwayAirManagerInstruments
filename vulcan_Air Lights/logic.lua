@@ -8,52 +8,40 @@ RLeds = hw_led_add("ARDUINO_UNO_B_D4", 0.0)
 ELeds = hw_led_add("ARDUINO_UNO_B_D5", 0.0)
 Extras = hw_led_add("ARDUINO_UNO_B_D2", 0.0)
 
-Abutt = hw_button_add("ARDUINO_UNO_B_D10", pressed, released)
-Rbutt = hw_button_add("ARDUINO_UNO_B_D9", pressed, released)
-Ebutt = hw_button_add("ARDUINO_UNO_B_D8", pressed, released)
-Reset = hw_button_add("ARDUINO_UNO_B_D11", pressed, released)
-
 
 ---------------
--- Functions -- FIX
+-- Functions --
 ---------------
-function fuel(fuel)
-    if fuek == 1 then
-        hw_led_set(gear_l_green, 1)
-    else    
-         hw_led_set(gear_l_green,0)
-
-    end
+function A(leds)
+        hw_led_set(ALeds, 0)
 end
-function gear_lights_r(gear_R)
 
-    if gear_R == 1 then
-        hw_led_set(gear_r_green, 1)
-        hw_led_set(gear_r_red, 0)
-    elseif gear_R < 1 and gear_R > 0 then
-        hw_led_set(gear_r_green,0)
-        hw_led_set(gear_r_red, 1)
-    else    
-         hw_led_set(gear_r_green,0)
-        hw_led_set(gear_r_red, 0)
-    end
+function R(leds)
+        hw_led_set(RLeds, 0)
 end
-function gear_lights_n(gear_N)
 
-    if gear_N == 1 then
-        hw_led_set(gear_n_green, 1)
-        hw_led_set(gear_n_red, 0)
-    elseif gear_N < 1 and gear_N > 0 then
-        hw_led_set(gear_n_green,0)
-        hw_led_set(gear_n_red, 1)
-    else    
-         hw_led_set(gear_n_green,0)
-        hw_led_set(gear_n_red, 0)
-    end
+function E(leds)
+        hw_led_set(ELeds, 0)
 end
+function On(leds)
+        hw_led_set(ALeds, 1)
+        hw_led_set(RLeds, 1)
+        hw_led_set(ELeds, 1)
+        hw_led_set(Extras,1)
+end
+
 -------------------
--- Bus subscribe -- FIX
+-- Add Buttons -- 
 -------------------
-xpl_dataref_subscribe("sim/flightmodel/movingparts/gear2def", "FLOAT", gear_lights_l)
-xpl_dataref_subscribe("sim/flightmodel/movingparts/gear3def", "FLOAT", gear_lights_r)
-xpl_dataref_subscribe("sim/flightmodel/movingparts/gear1def", "FLOAT", gear_lights_n)
+
+
+Abutt = hw_button_add("ARDUINO_UNO_B_D10", A)
+Rbutt = hw_button_add("ARDUINO_UNO_B_D9", R)
+Ebutt = hw_button_add("ARDUINO_UNO_B_D8", E)
+Reset = hw_button_add("ARDUINO_UNO_B_D11", On)
+
+
+
+-------------------
+-- Bus subscribe (Empty as this doesnt talk to the sim) --
+-------------------

@@ -31,9 +31,49 @@ function air_brake(airbrake)
     end
 end
 
+function bombs(bomb_doors) --check rheomon values
+    if bomb_doors == 1 then
+        hw_led_set(bomb_slant, 1)
+        timer_start(3000)
+        hw_led_set(bomb_white, 1)
+ 
+    elseif bomb_doors == 0 then
+        hw_led_set(bomb_white, 0)
+        hw_led_set(bomb_slant, 1)
+        timer_start(3000)
+        hw_led_set(bomb_slant, 1)
+    else    
+        hw_led_set(bomb_white,0)
+        hw_led_set(bomb_slant, 0)
+    end
+end
+
+function feel(eng)
+    if (eng[1] and eng[2] and eng[3] and eng[4]) > 22 then
+        hw_led_set(feel_on, 1)
+        hw_led_set(feel_off, 0)
+    elseif (eng[1] or eng[2] or eng[3] or eng[4]) > 22 then    
+        hw_led_set(feel_off, 1)
+        hw_led_set(feel_on, 0)
+    else
+        hw_led_set(feel_on, 0)
+        hw_led_set(feel_off, 0)
+    end
+end
+        
+function cfeed(switch)
+    if switch == 1 then
+        hw_led_set(cfeed_open,1)
+        hw_led_set(cfeed_closed, 0)
+    else
+        hw_led_set(cfeed_open,0)
+        hw_led_set(cfeed_closed, 1) 
+    end  
+ end    
 -------------------
 -- Bus subscribe -- FIX
 -------------------
-xpl_dataref_subscribe("sim/flightmodel/movingparts/gear2def", "FLOAT", gear_lights_l)
-xpl_dataref_subscribe("sim/flightmodel/movingparts/gear3def", "FLOAT", gear_lights_r)
-xpl_dataref_subscribe("sim/flightmodel/movingparts/gear1def", "FLOAT", gear_lights_n)
+xpl_dataref_subscribe("sim/cockpit2/controls/speedbrake_ratio", "FLOAT", air_brake) --check ratio
+xpl_dataref_subscribe("thranda/rheostat/rheomonitor[21]", "FLOAT", bombs) --fix this with correct rheomonitor
+xpl_dataref_subscribe("sim/cockpit2/engine/indicators/N1_percent", "FLOAT[16]", feel) --test
+xpl_dataref_subscribe("thranda/switches/switchmonitor[1]", "FLOAT", cfeed) --fix this with correct switchmonitor
