@@ -1,7 +1,7 @@
 --- vulcan fuel flow engines ----
 
 img_add_fullscreen("fuel flow eng.png")
---img_night = img_add("fuel flow eng night.png", 0,0,250,250)
+img_night = img_add("fuel flow eng night.png", 0,0,250,250)
 img_needle = img_add("needle outer.png",0,0,250,250)
 
 function PT_fuel_flow_FSX(fuelflow_1, fuelflow_2, fuelflow_3, fuelflow_4)
@@ -40,7 +40,5 @@ fsx_variable_subscribe("TURB ENG CORRECTED FF:1", "Pounds per hour",
                        "TURB ENG CORRECTED FF:4", "Pounds per hour",
  PT_fuel_flow_FSX)
 
--- This is where we check if the backlight (cockpit light) is on, currently disabled, re-enable when req, and set up for x-plane --
-
--- fsx_variable_subscribe("LIGHT PANEL", "bool",
---				   light_fsx)
+ fsx_variable_subscribe("LIGHT PANEL", "bool",
+					   light_fsx)

@@ -5,7 +5,7 @@ font_alt = "-fx-font-size:40px; -fx-font-family:London-Tube; -fx-font-weight:bol
 font_baro = "-fx-font-size:19px; -fx-font-family:London-Tube; -fx-font-weight:bold; -fx-fill: white; -fx-text-alignment:center;"
 
 background_image_id = img_add_fullscreen("background.png")
---img_night = img_add("background night.png", 0,0,330,330)
+img_night = img_add("background night.png", 0,0,330,330)
 
 -- Barometric pressure set knob
 ---------------------------------------------
@@ -229,17 +229,10 @@ fsx_variable_subscribe("INDICATED ALTITUDE", "Feet",
 					   "KOHLSMAN SETTING HG", "inHg", 
 					   "KOHLSMAN SETTING MB", "Millibars",
 					   "ELECTRICAL MASTER BATTERY", "BOOLEAN", new_fsx_data)
-					   	
+					   
+fsx_variable_subscribe("LIGHT PANEL", "bool",
+					   light_fsx)	
 			  					   				   
 xpl_dataref_subscribe("sim/flightmodel/misc/h_ind", "FLOAT", 
 					  "sim/cockpit2/gauges/actuators/barometer_setting_in_hg_pilot", "FLOAT",
 					  "sim/cockpit/electrical/battery_on", "INT", new_xpl_data)
-					  
-					  
-					  
--- This is where we check if the backlight (cockpit light) is on, currently disabled, re-enable when req, and set up for x-plane --
-
--- fsx_variable_subscribe("LIGHT PANEL", "bool",
---				   light_fsx)
-					  
-					  

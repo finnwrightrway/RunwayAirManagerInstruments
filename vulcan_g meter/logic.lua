@@ -1,5 +1,5 @@
 background_img = img_add_fullscreen ( "g meter.png" )
---img_night = img_add("g meter night.png", 0,0,200,200)
+img_night = img_add("g meter night.png", 0,0,200,200)
 min_needle = img_add_fullscreen ( "needle_min.png" )
 max_needle = img_add_fullscreen ( "needle_max.png"  )
 move_needle = img_add_fullscreen ( "needle_moving.png"  )
@@ -37,7 +37,5 @@ xpl_dataref_subscribe( "sim/flightmodel/forces/g_nrml" , "FLOAT" ,  g_changed )
 fsx_variable_subscribe( "G FORCE", "GForce", g_changed )
 fsx_variable_subscribe( "G FORCE", "GForce", g_changing )
 
--- This is where we check if the backlight (cockpit light) is on, currently disabled, re-enable when req, and set up for x-plane --
-
--- fsx_variable_subscribe("LIGHT PANEL", "bool",
---				   light_fsx)	
+fsx_variable_subscribe("LIGHT PANEL", "bool",
+					   light_fsx)	

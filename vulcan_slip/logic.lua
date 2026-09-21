@@ -1,6 +1,6 @@
 --- vulcan slip ---
 img_add_fullscreen("slip back.png")
---img_night = img_add("slip back night.png", 0,0,300,75)
+img_night = img_add("slip back night.png", 0,0,300,75)
 img_ball = img_add("ball.png", 128,28,44,44)
 
 function new_ball_deflection(slip)
@@ -29,9 +29,5 @@ end
 
 fsx_variable_subscribe("TURN COORDINATOR BALL", "Position",new_ball_deflection_FSX)
 
-xpl_dataref_subscribe("sim/cockpit2/gauges/indicators/slip_deg","FLOAT", new_ball_deflection_FSX)
-
--- This is where we check if the backlight (cockpit light) is on, currently disabled, re-enable when req, and set up for x-plane --
-
--- fsx_variable_subscribe("LIGHT PANEL", "bool",
---				   light_fsx)	
+fsx_variable_subscribe("LIGHT PANEL", "bool",
+					   light_fsx)	

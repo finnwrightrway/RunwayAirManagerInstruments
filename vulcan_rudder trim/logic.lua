@@ -1,7 +1,7 @@
 --- vulcan rudder trim ---
 
 img_add_fullscreen("rudder_trim_back.png")
---img_night = img_add("rudder_trim_back_night.png", 0,0,250,250)
+img_night = img_add("rudder_trim_back_night.png", 0,0,250,250)
 needle = img_add_fullscreen("rudder_hand.png")
 
 function PT_trim(rudder)
@@ -19,7 +19,5 @@ end
 fsx_variable_subscribe("RUDDER TRIM PCT", "Percent", 
                        PT_trim)
 					   
--- This is where we check if the backlight (cockpit light) is on, currently disabled, re-enable when req, and set up for x-plane --
-
--- fsx_variable_subscribe("LIGHT PANEL", "bool",
---				   light_fsx)					   
+fsx_variable_subscribe("LIGHT PANEL", "bool",
+					   light_fsx)						   

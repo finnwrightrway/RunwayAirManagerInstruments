@@ -1,7 +1,7 @@
 --- vulcan turn ---
 
 img_add_fullscreen("turn back day.png")
---img_night = img_add("turn back.png", 0,0,400,400)
+img_night = img_add("turn back.png", 0,0,400,400)
 img_plane = img_add("turn indicator.png",0,0,400,400)
 img_vee = img_add("turn vee.png",0,0,400,400)
 img_horizon = img_add("horizon.png",0,0,400,400)
@@ -32,15 +32,18 @@ function new_attitude_fsx(roll, pitch, slip)
 	PT_atitude(roll *-1, pitch * -1)
 	
 end	
-
+function new_attitude(roll, pitch, slip)
+	
+	PT_atitude(roll *-1, pitch)
+	
+end
 
 fsx_variable_subscribe("ATTITUDE INDICATOR BANK DEGREES", "Degrees",
 					   "ATTITUDE INDICATOR PITCH DEGREES", "Degrees", new_attitude_fsx)
 					   
 xpl_dataref_subscribe("sim/cockpit2/gauges/indicators/roll_vacuum_deg_pilot", "FLOAT",
-                            "sim/cockpit2/gauges/indicators/pitch_vacuum_deg_pilot", "FLOAT", new_attitude_fsx )
+					   "sim/cockpit2/gauges/indicators/pitch_vacuum_deg_pilot", "FLOAT", new_attitude) --pos right and up
 
--- This is where we check if the backlight (cockpit light) is on, currently disabled, re-enable when req, and set up for x-plane --
 
--- fsx_variable_subscribe("LIGHT PANEL", "bool",
---				   light_fsx)
+--fsx_variable_subscribe("LIGHT PANEL", "bool",
+--					   light_fsx)

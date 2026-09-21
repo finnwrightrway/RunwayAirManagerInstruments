@@ -1,6 +1,6 @@
 -- Global variables --
-local persist_power = persist_add("power", "INT", 0)
-local gbl_power  = 0
+--local persist_power = persist_add("power", "INT", 0)
+--local gbl_power  = 0
 local gbl_dist1  = 0
 
 -- Add images in Z-order --
@@ -22,12 +22,12 @@ group_text = group_add(txt_naut, txt_nm)
 function update_gui()
 
     -- Get the state of the power switch
-    selected = persist_get(persist_power)
+    --selected = persist_get(persist_power)
     -- Turn DME on and off (make text visible and invisible)
-    visible(group_text, gbl_power)
+    --visible(group_text, gbl_power)
 
     -- Are we seeing data from DME1
-    visible(txt_nav1, gbl_power)
+    --visible(txt_nav1, gbl_power)
     
     -- Set distance
     if selected == 1 then
@@ -49,9 +49,9 @@ end
 function new_data_fsx(dist1, avionics, battery)
 
     -- Do we have power?
-    gbl_power = fif((battery and avionics), true, false)
-	pwr_on=fif( gbl_power, 1,0)
-persist_put(persist_power, pwr_on)
+    --gbl_power = fif((battery and avionics), true, false)
+	--pwr_on=fif( gbl_power, 1,0)
+--persist_put(persist_power, pwr_on)
     -- Make everything global
     gbl_dist1  = dist1
 
@@ -103,10 +103,8 @@ end
 
 -- Subscribe to data --					  
 					  
--- This is where we check if the backlight (cockpit light) is on, currently disabled, re-enable when req, and set up for x-plane --
-
--- fsx_variable_subscribe("LIGHT PANEL", "bool",
---				   light_fsx)
+fsx_variable_subscribe("LIGHT PANEL", "bool",
+					   light_fsx)	
 
 fsx_variable_subscribe("ELEVATOR TRIM PCT", "Percent",
 					   "AILERON TRIM PCT", "Percent",

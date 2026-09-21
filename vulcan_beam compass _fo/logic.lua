@@ -114,7 +114,7 @@ fsx_variable_subscribe("LIGHT PANEL", "bool",
                        "PLANE HEADING DEGREES GYRO", "degrees", 
 					   light_fsx)		
 					   
-fsx_variable_subscribe("NAV HAS NAV:1", "Bool",
+fsx_variable_subscribe("NAV HAS NAV:2", "Bool",
 					   "NAV TOFROM:2", "Enum", 
 					   new_info_fsx)
 					   					   

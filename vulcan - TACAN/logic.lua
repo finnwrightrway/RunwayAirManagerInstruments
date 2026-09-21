@@ -38,8 +38,8 @@ end
 
 
 fsx_variable_subscribe("NAV RADIAL:1", "Degrees",
-                        "NAV HAS DME:1" "number" 
-                       radial)
+                        "NAV HAS DME:1", "number", 
+         radial)
 
 fsx_variable_subscribe("NAV DME:1", "nautical miles",
                        dist)	

@@ -3,7 +3,7 @@
 --     Load and display images     --
 -------------------------------------
 img_add_fullscreen("EGT back.png")
---img_night = img_add("EGT back night.png", 0,0,200,200)
+img_night = img_add("EGT back night.png", 0,0,200,200)
 EGT_hand = img_add("EGT hand.png", 0, 0, 200, 200)
 
 ---------------
@@ -33,7 +33,5 @@ end
 -------------------
 xpl_dataref_subscribe("sim/flightmodel/engine/ENGN_ITT_c", "FLOAT[8]", new_tot)
 fsx_variable_subscribe("ENG EXHAUST GAS TEMPERATURE:2", "Celsius", Function_FSX)
--- This is where we check if the backlight (cockpit light) is on, currently disabled, re-enable when req, and set up for x-plane --
-
--- fsx_variable_subscribe("LIGHT PANEL", "bool",
---				   light_fsx)
+fsx_variable_subscribe("LIGHT PANEL", "bool",
+					   light_fsx)	
