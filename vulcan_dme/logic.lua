@@ -96,17 +96,20 @@ end
 
 -------lighting---------
 
-function light_fsx(lightpanel )
-
-      visible(img_night, lightpanel)	
-end
+--function light_fsx(lightpanel )
+--
+ --     visible(img_night, lightpanel)	
+--end
 
 -- Subscribe to data --					  
 					  
-fsx_variable_subscribe("LIGHT PANEL", "bool",
-					   light_fsx)	
+--fsx_variable_subscribe("LIGHT PANEL", "bool",
+--					   light_fsx)	
 
 fsx_variable_subscribe("ELEVATOR TRIM PCT", "Percent",
 					   "AILERON TRIM PCT", "Percent",
 					   "RUDDER TRIM PCT", "Percent", PT_trim_FSX)
-					    
+
+xpl_dataref_subscribe("sim/cockpit2/controls/aileron_trim", "FLOAT", 
+                        "sim/cockpit2/controls/rudder_trim", "FLOAT", 
+                            "sim/cockpit2/controls/elevator_trim", "FLOAT", PT_trim)					    

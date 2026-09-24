@@ -19,10 +19,10 @@ cfeed_closed = hw_led_add("ARDUINO_MEGA2560_A_D12", 0.0)
 -- Functions -- FIX
 ---------------
 function air_brake(airbrake)
-    if airbrake > 1 then
+    if airbrake > 0 and airbrake < 1 then
+        hw_led_set(air_white,0)
         hw_led_set(air_slant, 1)
- 
-    elseif airbrake < 1 and airbrake > 0 then
+    elseif airbrake == 1 then
         hw_led_set(air_white,1)
         hw_led_set(air_slant, 0)
     else    
@@ -31,20 +31,23 @@ function air_brake(airbrake)
     end
 end
 
-function bombs(bomb_doors) --check rheomon values
-    if bomb_doors == 1 then
-        hw_led_set(bomb_slant, 1)
-        timer_start(3000)
+function bomb_open()
+        hw_led_set(bomb_slant, 0)
         hw_led_set(bomb_white, 1)
- 
-    elseif bomb_doors == 0 then
+end
+function bomb_off()
+        hw_led_set(bomb_slant, 0)
+        hw_led_set(bomb_white, 0)
+end
+function bombs(bomb_doors)
+    if bomb_doors == 0 then
+        hw_led_set(bomb_slant, 1)
+        timer_start(3000, bomb_open)
+
+    elseif bomb_doors == 2 then
         hw_led_set(bomb_white, 0)
         hw_led_set(bomb_slant, 1)
-        timer_start(3000)
-        hw_led_set(bomb_slant, 1)
-    else    
-        hw_led_set(bomb_white,0)
-        hw_led_set(bomb_slant, 0)
+        timer_start(3000, bomb_off)
     end
 end
 
@@ -60,9 +63,10 @@ function feel(eng)
         hw_led_set(feel_off, 0)
     end
 end
-        
+       
 function cfeed(switch)
-    if switch == 1 then
+    norm = var_round(switch[3], 0)
+    if norm == 2 then
         hw_led_set(cfeed_open,1)
         hw_led_set(cfeed_closed, 0)
     else
@@ -73,7 +77,7 @@ function cfeed(switch)
 -------------------
 -- Bus subscribe -- FIX
 -------------------
-xpl_dataref_subscribe("sim/cockpit2/controls/speedbrake_ratio", "FLOAT", air_brake) --check ratio
-xpl_dataref_subscribe("thranda/rheostat/rheomonitor[21]", "FLOAT", bombs) --fix this with correct rheomonitor
-xpl_dataref_subscribe("sim/cockpit2/engine/indicators/N1_percent", "FLOAT[16]", feel) --test
-xpl_dataref_subscribe("thranda/switches/switchmonitor[1]", "FLOAT", cfeed) --fix this with correct switchmonitor
+xpl_dataref_subscribe("sim/cockpit2/controls/speedbrake_ratio", "FLOAT", air_brake) --0.5 half, 0.8 full no gear, 1 full gear
+xpl_dataref_subscribe("thranda/weapons/BombBayDoor", "INT", bombs) --JF only
+xpl_dataref_subscribe("sim/cockpit2/engine/indicators/N1_percent", "FLOAT[8]", feel) --test
+xpl_dataref_subscribe("thranda/SwitchMonitor", "FLOAT[161]", cfeed) --switch is 2, XP array start 0 start 1 here so 2 there is 3 here 

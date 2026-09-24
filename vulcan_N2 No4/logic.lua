@@ -8,7 +8,7 @@ img_night = img_add("n1 back night.png", 0,0,200,200)
 N1_hand = img_add("N1 hand.png", 0, 0, 200, 200)
 ltl_hand = img_add("little hand.png", 39,29,50,50)
 
-posn_no = 1
+posn_no = 4
 ---------------
 -- Functions --
 ---------------

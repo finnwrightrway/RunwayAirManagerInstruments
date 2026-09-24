@@ -28,18 +28,13 @@ Park = hw_led_add("ARDUINO_MEGA2560_A_D22", 0.0) --done
 function fuel(fuel_press)
     for i = 1,4 do
     
-        if fuel_press[i] == 100 then
+        if fuel_press[i] == 0 then
             hw_led_set(ledarray[i], 0)
     
-        elseif  fuel_press[i] > 15 then
+        elseif  fuel_press[i] == 1 then
             hw_led_set(ledarray[i], 1)
-            timer_start(500)
-            hw_led_set(ledarray[i], 0)
-            timer_start(500)
-        
-        else
-            hw_led_set(ledarray[i], 1)    
-        
+        else      
+            hw_led_set(ledarray[i], 1)        
         end
     end
 end
@@ -90,9 +85,9 @@ end
 -------------------
 -- Bus subscribe --
 -------------------
-xpl_dataref_subscribe("sim/cockpit2/engine/indicators/fuel_pressure_psi", "FLOAT[16]", fuel)
+xpl_dataref_subscribe("sim/cockpit2/annunciators/fuel_pressure_low", "INT[8]", fuel)
 xpl_dataref_subscribe("sim/flightmodel/movingparts/gear1def", "FLOAT", escape)
 xpl_dataref_subscribe("sim/cockpit2/controls/parking_brake_ratio", "FLOAT", park)
-xpl_dataref_subscribe("sim/time/paused", "BOOL", pause)
+xpl_dataref_subscribe("sim/time/paused", "INT", pause)
 xpl_dataref_subscribe("sim/cockpit2/annunciators/master_warning", "FLOAT", master)
 xpl_dataref_subscribe("sim/cockpit2/annunciators/inverter", "INT", alt)

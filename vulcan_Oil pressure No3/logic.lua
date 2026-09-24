@@ -6,12 +6,12 @@
 img_add_fullscreen("oil back.png")
 img_night = img_add("oil back night.png", 0,0,200,200)
 hand = img_add("oil hand.png", 0,0,200,200)
-
+ENG=3
 -- Functions --
 
 function new_oil(oilp)
 
-	oilp = var_cap(oilp[1], 0, 100)
+	oilp = var_cap(oilp[ENG], 0, 100)
 
 	if oilp >= 80 then
 		img_rotate(hand, 65/ 20 * (oilp -80) +80)

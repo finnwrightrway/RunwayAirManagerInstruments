@@ -34,7 +34,7 @@ end
 
 function N1_posn_FSX(N1_2)
 
-	N1_posn({N1_2})
+	N1_posn({N1_2[1]})
 	
 end
 
