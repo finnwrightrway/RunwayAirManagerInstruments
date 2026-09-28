@@ -1,7 +1,7 @@
 --   vulcan vario    ---
 
 img_add_fullscreen("vario back.png")
---img_night = img_add("vario back night.png", 0,0,400,400)
+img_night = img_add("vario back night.png", 0,0,400,400)
 img_needle = img_add_fullscreen("vario_needle.png")
 
 function PT_vario(verticalspeed)
@@ -41,7 +41,6 @@ end
 xpl_dataref_subscribe("sim/cockpit2/gauges/indicators/vvi_fpm_pilot", "FLOAT", PT_vario)
 fsx_variable_subscribe("VERTICAL SPEED", "Feet per minute", PT_vario)
 
--- This is where we check if the backlight (cockpit light) is on, currently disabled, re-enable when req, and set up for x-plane --
 
--- fsx_variable_subscribe("LIGHT PANEL", "bool",
---				   light_fsx)	
+fsx_variable_subscribe("LIGHT PANEL", "bool",
+					   light_fsx)	

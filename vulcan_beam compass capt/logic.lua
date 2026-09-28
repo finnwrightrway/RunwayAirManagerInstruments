@@ -4,14 +4,14 @@
 
 
 img_add_fullscreen("beam_compass_back.png")
-img_night = img_add("beam_compass_back_night.png", 0,0,400,400)
+--img_night = img_add("beam_compass_back_night.png", 0,0,400,400)
 img_fr = img_add("OBS2navfr.png", 0,0,400,400)
 img_to = img_add_fullscreen("OBS2navto.png")
 img_navflag = img_add("OBS2navflag.png", 0,0,400,400)
 img_beam = img_add("hor bar.png",0,0,400,400)
 img_card = img_add("rose back.png", 0,0,400,400)
-img_night_rose = img_add("rose back night.png", 0,0,400,400)
-img_night_glow = img_add("rose back glow.png", 0,0,400,400)
+--img_night_rose = img_add("rose back night.png", 0,0,400,400)
+--img_night_glow = img_add("rose back glow.png", 0,0,400,400)
 img_heading_pointer = img_add_fullscreen("beam needle.png")
 img_bug = img_add_fullscreen("bug.png")
 img_dgflag = img_add("dg flag.png", 0,0,400,400)
@@ -40,10 +40,10 @@ function new_headbug( bug)
 
 end
 
-function new_combined(degm, obscorr)
+function new_combined(degm, newbug, obscorr)
 
 	img_rotate(img_heading_pointer, (degm - obscorr) )
-
+        img_rotate(img_bug, (newbug - obscorr))
 end
 
 function new_knob_hdg(value)
@@ -73,7 +73,6 @@ end
 function new_obsheading(obs)
 -- Rotate the omni bearing selector
 	img_rotate(img_card, (obs * -1))
-	img_rotate(img_night_rose, (obs * -1))
 
 end
 
@@ -86,14 +85,22 @@ function new_dots_fsx(horizontal)
 	
 end
 
+function new_dots_xpl(horizontal)
 
-function light_fsx(lightpanel)
-
-      visible(img_night, lightpanel)	
-	   visible(img_night_rose, lightpanel)
-	  visible(img_night_glow, lightpanel)
-	  
+	-- Localizer
+	horizontal =  horizontal * 32
+	horizontal = var_cap(horizontal, -80, 80)
+	img_move(img_beam, horizontal, nil, nil, nil )
+	
 end
+
+--function light_fsx(lightpanel)
+--
+--      visible(img_night, lightpanel)	
+--	   visible(img_night_rose, lightpanel)
+--	  visible(img_night_glow, lightpanel)
+	  
+--end
 
 -- Data bus subscribe --
 
@@ -101,20 +108,31 @@ end
 
 fsx_variable_subscribe("AUTOPILOT HEADING LOCK DIR", "degrees", 
 					   new_headbug)
+xpl_dataref_subscribe("sim/cockpit2/autopilot/heading_dial_deg_mag_pilot", "FLOAT", new_headbug) ---check
 					   
-fsx_variable_subscribe("PLANE HEADING DEGREES GYRO", "degrees","NAV OBS:1", "Degrees", new_combined)					   
-						
+fsx_variable_subscribe("PLANE HEADING DEGREES GYRO", "degrees","NAV OBS:1", "Degrees", new_combined)	
+				   
+xpl_dataref_subscribe("sim/cockpit2/gauges/indicators/heading_vacuum_deg_mag_pilot", "FLOAT",
+                          "sim/cockpit2/autopilot/heading_dial_deg_mag_pilot", "FLOAT", 
+                            "sim/cockpit2/radios/actuators/nav1_obs_deg_mag_pilot", "FLOAT", new_combined) ---check	
+					
 fsx_variable_subscribe("NAV OBS:1", "Degrees",
                       "AUTOPILOT HEADING LOCK DIR", "degrees", 
                        new_obsheading)
+xpl_dataref_subscribe("sim/cockpit2/radios/actuators/nav1_obs_deg_mag_pilot", "FLOAT", 
+                        "sim/cockpit2/autopilot/heading_dial_deg_mag_pilot", "FLOAT", new_obsheading)
+                        
+fsx_variable_subscribe("NAV CDI:1", "Number", new_dots_fsx)
 
-fsx_variable_subscribe("NAV CDI:1", "Number", new_dots_fsx)		
+xpl_dataref_subscribe("sim/cockpit2/radios/indicators/nav1_hdef_dots_pilot", "FLOAT", new_dots_xpl) ---check			
 
-fsx_variable_subscribe("LIGHT PANEL", "bool",
-                       "PLANE HEADING DEGREES GYRO", "degrees", 
-					   light_fsx)		
+--fsx_variable_subscribe("LIGHT PANEL", "bool",
+--                       "PLANE HEADING DEGREES GYRO", "degrees", 
+--					   light_fsx)		
 					   
 fsx_variable_subscribe("NAV HAS NAV:1", "Bool",
 					   "NAV TOFROM:1", "Enum", 
 					   new_info_fsx)
+xpl_dataref_subscribe("sim/cockpit2/radios/indicators/nav1_display_horizontal", "INT",
+                        "sim/cockpit2/radios/indicators/nav1_flag_from_to_pilot", "INT", new_info_fsx)
 					   					   

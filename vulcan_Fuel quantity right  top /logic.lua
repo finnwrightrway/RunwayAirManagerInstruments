@@ -2,7 +2,7 @@
 
 -- Add images --
 img_add_fullscreen("fuel top back.png")
---img_night = img_add("fuel top back night.png", 0,0,300,300)
+img_night = img_add("fuel top back night.png", 0,0,300,300)
 img_needle = img_add("fuel top needle.png",0,0,300,300)
 
 function new_fuel_fsx(gallons_right)
@@ -23,7 +23,5 @@ end
 fsx_variable_subscribe("FUEL RIGHT QUANTITY", "Gallons", 
 new_fuel_fsx)
 
--- This is where we check if the backlight (cockpit light) is on, currently disabled, re-enable when req, and set up for x-plane --
-
--- fsx_variable_subscribe("LIGHT PANEL", "bool",
---				   light_fsx)
+fsx_variable_subscribe("LIGHT PANEL", "bool",
+					   light_fsx)	

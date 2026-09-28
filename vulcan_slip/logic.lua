@@ -22,12 +22,23 @@ function new_ball_deflection_FSX(slip)
 	
 end
 
+function new_ball_deflection_xpl(slip)
+	
+--slip = slip * -100
+	--slip = slip * -9
+		print(slip)
+	new_ball_deflection(slip)
+	
+end
+
 function light_fsx(lightpanel )
 
       visible(img_night, lightpanel)	
 end
 
 fsx_variable_subscribe("TURN COORDINATOR BALL", "Position",new_ball_deflection_FSX)
+
+xpl_dataref_subscribe("sim/cockpit2/gauges/indicators/slip_deg", "FLOAT", new_ball_deflection_xpl)
 
 fsx_variable_subscribe("LIGHT PANEL", "bool",
 					   light_fsx)	

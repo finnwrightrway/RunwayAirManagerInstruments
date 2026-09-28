@@ -9,7 +9,7 @@ hand_2 = img_add("hyd needle pressure.png", 85,120,12,80)
 hand_3 = img_add("hyd needle cap.png", 27,94,125,12)
 -- Functions --
 
-print(string)
+--print(string)
 
 function new_hyd_FSX(hydp1, hydp2, hydres)
              img_rotate(hand_1, (160 / 5000 * hydp1) -120)
@@ -17,10 +17,13 @@ function new_hyd_FSX(hydp1, hydp2, hydres)
 	         img_rotate(hand_3, (hydres /1.4 ) -48)
 end
 
-function light_fsx(lightpanel )
-
-      visible(img_night, lightpanel)	
+function xpl_data(sys1, sys2, fluid1, fluid2)
+            fluid = (fluid1 + fluid2) / 2
+            fluid100 = fluid * 100
+            new_hyd_FSX( sys1, sys2, fluid100)
 end
+
+
 -------------------
 -- Bus subscribe --
 -------------------
@@ -30,7 +33,10 @@ fsx_variable_subscribe("HYDRAULIC PRESSURE:1", "Psi",
                        "HYDRAULIC RESERVOIR PERCENT:1", "Percent", 
 new_hyd_FSX)
 
--- This is where we check if the backlight (cockpit light) is on, currently disabled, re-enable when req, and set up for x-plane --
+xpl_dataref_subscribe("sim/cockpit2/hydraulics/indicators/hydraulic_pressure_1", "FLOAT",
+                        "sim/cockpit2/hydraulics/indicators/hydraulic_pressure_1", "FLOAT",
+                            "sim/cockpit2/hydraulics/indicators/hydraulic_fluid_ratio_1", "FLOAT", 
+                                "sim/cockpit2/hydraulics/indicators/hydraulic_fluid_ratio_2", "FLOAT",
+                                    xpl_data)
 
--- fsx_variable_subscribe("LIGHT PANEL", "bool",
---				   light_fsx)	
+	

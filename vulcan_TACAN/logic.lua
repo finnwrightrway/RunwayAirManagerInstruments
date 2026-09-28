@@ -1,48 +1,68 @@
 -- vulcan adf --
-ten = img_add_fullscreen("tac_d_l.png") --position not set
-one = img_add_fullscreen("tac_d_r.png") --position not set
 
+ten = img_add("tac_d_l.png",-5,52,200,200)
+one = img_add("tac_d_r.png",193,52,200,200)
 img_add_fullscreen("tac_back.png")
+
+
+
 
 --img_night = img_add("adf back night.png", 0,0,400,400)
 
-needle = img_add_fullscreen("tac_needle.png")
+needle = img_add("tac_needle.png",182,46,45,325)
 
 off = img_add_fullscreen("tac_off.png")
 
 --default visibility-
-visible(off, false)
 
-function radial(vor_radial, dme_on)
 
-		img_rotate(needle, vor_radial)
+function radial(vor_radial, dme_on, head)
+
+		img_rotate(needle, (vor_radial - 180 - head))
+		visible(off, dme_on == false)
 		
 	
 end
 
+function radial_xpl(relative, dme_on)
+		img_rotate(needle, relative)
+		visible(off, dme_on == false)
+end		
+
 function dist(dme)
-    img_rotate(one, (dme * -36))
-    img_rotate(ten, (dme * 3.6))
+    dme10 = (dme * 0.1)
+    dmenew = math.floor(dme10)
+    
+    img_rotate(one, (dme * 36))
+    img_rotate(ten, (dmenew * -36))
 
 
 end
 
-visible(off, dme_on < 1)
+--visible(off, dme_on < 1)
 
 function light_fsx(lightpanel )
 
-      visible(img_night, lightpanel)	
+      --visible(img_night, lightpanel)	
 end
 
 
 
 
 fsx_variable_subscribe("NAV RADIAL:1", "Degrees",
-                        "NAV HAS DME:1", "number", 
-         radial)
+                        "NAV HAS DME:1", "bool",
+                        "PLANE HEADING DEGREES MAGNETIC", "Degrees", 
+                       radial)
+
+xpl_dataref_subscribe("sim/cockpit2/radios/indicators/nav1_relative_bearing_deg", "FLOAT", "sim/cockpit2/radios/indicators/nav1_has_dme", "BOOL", radial_xpl)
+
+
+
 
 fsx_variable_subscribe("NAV DME:1", "nautical miles",
                        dist)	
+
+xpl_dataref_subscribe("sim/cockpit2/radios/indicators/nav1_dme_distance_nm", "FLOAT", dist)
 
 fsx_variable_subscribe("LIGHT PANEL", "bool",
 					   light_fsx)	   
